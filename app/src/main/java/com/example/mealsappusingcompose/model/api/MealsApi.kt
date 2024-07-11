@@ -1,7 +1,6 @@
 package com.example.mealsappusingcompose.model.api
 
 import com.example.mealsappusingcompose.model.response.MealsCategoriesResponse
-import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
@@ -9,7 +8,7 @@ import retrofit2.http.GET
 
 class MealsWebService {
 
-    private lateinit var api: MealsApi
+    private var api: MealsApi
 
     init {
         val retrofit = Retrofit.Builder()

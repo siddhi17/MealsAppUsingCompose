@@ -7,11 +7,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.mealsappusingcompose.model.MealsRepository
 import com.example.mealsappusingcompose.model.response.MealResponse
-import com.example.mealsappusingcompose.model.response.MealsCategoriesResponse
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.Job
-import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.launch
 
 class MealsCategoriesViewModel (private val repository: MealsRepository = MealsRepository()): ViewModel() {
