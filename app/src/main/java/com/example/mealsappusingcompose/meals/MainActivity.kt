@@ -13,6 +13,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.mealsappusingcompose.model.response.MealResponse
 import com.example.mealsappusingcompose.ui.theme.MealsAppUsingComposeTheme
@@ -34,7 +35,7 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun MealsCategoriesScreen() {
     val viewModel: MealsCategoriesViewModel = viewModel()
-    val rememberedMeals: MutableState<List<MealResponse>> =
+/*    val rememberedMeals: MutableState<List<MealResponse>> =
         remember { mutableStateOf(emptyList<MealResponse>()) }
 
     val coroutineScope = rememberCoroutineScope()
@@ -45,15 +46,15 @@ fun MealsCategoriesScreen() {
             rememberedMeals.value = meals
 
         }
-    }
+    }*/
 
+    val meals = viewModel.mealsState.value
 
     LazyColumn {
-        items(rememberedMeals.value) { meal ->
+        items(meals) { meal ->
             Text(text = meal.name)
         }
     }
-
 }
 
 @Preview(showBackground = true)
