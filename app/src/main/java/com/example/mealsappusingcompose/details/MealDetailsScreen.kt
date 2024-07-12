@@ -7,8 +7,12 @@ import androidx.compose.animation.core.updateTransition
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.MaterialTheme
@@ -31,16 +35,16 @@ import java.lang.Float.min
 
 @Composable
 fun MealDetailsScreen(meal: MealResponse?) {
-    val scrollState = rememberLazyListState()
-    var profilePictureState by remember {
+
+    val profilePictureState by remember {
         mutableStateOf(MealProfilePictureState.Normal)
     }
     val transition = updateTransition(targetState = profilePictureState, label = "")
 
-    val offset = min(1f, 1 -
-            (scrollState.firstVisibleItemScrollOffset / 600f
-            + scrollState.firstVisibleItemIndex))
-    val size by animateDpAsState(targetValue = max(100.dp, 140.dp * offset))
+    val scrollState = rememberScrollState()
+    val offset = min(1f, 1 - (scrollState.value / 600f))
+    val size by animateDpAsState(targetValue = max(100.dp, 200.dp * offset))
+
 
     var isExpanded by remember { mutableStateOf(false) }
 /*    val imageSizeDp: Dp by animateDpAsState(
@@ -75,7 +79,7 @@ fun MealDetailsScreen(meal: MealResponse?) {
                             ),
                             contentDescription = null,
                             modifier = Modifier
-                                .size(imageSizeDp)
+                                .size(size)
                         )
                     }
                     Text(
@@ -85,10 +89,9 @@ fun MealDetailsScreen(meal: MealResponse?) {
                             .align(Alignment.CenterVertically)
                     )
                 }
-
             }
 
-            Row()
+    /*        Row()
             {
                 Button(modifier = Modifier
                     .padding(16.dp),
@@ -100,14 +103,21 @@ fun MealDetailsScreen(meal: MealResponse?) {
                     }) {
                     Text("Change state of meal profile picture")
                 }
-            }
-          /*
-            val dummyContentList = (0..100).map { it.toString() }
-            LazyColumn(state = scrollState) {
-                items(dummyContentList) { dummyItem ->
-                    Text(text = dummyItem, modifier = Modifier.padding(24.dp))
-                }
             }*/
+
+            Column(modifier = Modifier.verticalScroll(scrollState)) {
+                Text("This is a text element", modifier = Modifier.padding(32.dp))
+                Text("This is a text element", modifier = Modifier.padding(32.dp))
+                Text("This is a text element", modifier = Modifier.padding(32.dp))
+                Text("This is a text element", modifier = Modifier.padding(32.dp))
+                Text("This is a text element", modifier = Modifier.padding(32.dp))
+                Text("This is a text element", modifier = Modifier.padding(32.dp))
+                Text("This is a text element", modifier = Modifier.padding(32.dp))
+                Text("This is a text element", modifier = Modifier.padding(32.dp))
+                Text("This is a text element", modifier = Modifier.padding(32.dp))
+                Text("This is a text element", modifier = Modifier.padding(32.dp))
+
+            }
         }
     }
 
