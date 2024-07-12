@@ -12,7 +12,6 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.example.mealsappusingcompose.details.MealDetailsScreen
 import com.example.mealsappusingcompose.details.MealDetailsViewModel
-import com.example.mealsappusingcompose.ui.theme.MealsAppUsingComposeTheme
 import com.example.mealsappusingcompose.ui.theme.MealzAppTheme
 
 
