@@ -18,6 +18,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -70,15 +72,13 @@ fun MealCategory(meal: MealResponse, navigationCallback: (String) -> Unit) {
                     text = meal.name,
                     style = MaterialTheme.typography.headlineMedium
                 )
-        /*        CompositionLocalProvider(LocalContentAlpha provides ContentAlpha.medium) {
-                    Text(
-                        text = meal.description,
-                        textAlign = TextAlign.Start,
-                        style = MaterialTheme.typography.bodyMedium,
-                        overflow = TextOverflow.Ellipsis,
-                        maxLines = if (isExpanded) 10 else 4
-                    )
-                }*/
+                Text(
+                    text = meal.description,
+                    textAlign = TextAlign.Start,
+                    style = MaterialTheme.typography.bodyMedium,
+                    overflow = TextOverflow.Ellipsis,
+                    maxLines = if (isExpanded) 10 else 4
+                )
             }
             Icon(
                 imageVector = if (isExpanded)
@@ -88,12 +88,12 @@ fun MealCategory(meal: MealResponse, navigationCallback: (String) -> Unit) {
                 contentDescription = "Expand row icon",
                 modifier = Modifier
                     .padding(16.dp)
-                /*    .align(
+                    .align(
                         if (isExpanded)
                             Alignment.Bottom
                         else
                             Alignment.CenterVertically
-                    )*/
+                    )
                     .align(Alignment.CenterVertically)
                     .clickable { isExpanded = !isExpanded }
             )
