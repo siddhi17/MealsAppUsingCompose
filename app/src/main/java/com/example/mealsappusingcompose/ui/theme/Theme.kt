@@ -1,9 +1,9 @@
 package com.example.mealsappusingcompose.ui.theme
 
-import android.app.Activity
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Shapes
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.dynamicDarkColorScheme
 import androidx.compose.material3.dynamicLightColorScheme
@@ -54,5 +54,21 @@ fun MealsAppUsingComposeTheme(
         colorScheme = colorScheme,
         typography = Typography,
         content = content
+    )
+}
+
+
+@Composable
+fun MealzAppTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Composable() () -> Unit) {
+    val colors = if (darkTheme) {
+        DarkColorScheme
+    } else {
+        LightColorScheme
+    }
+
+    MaterialTheme(
+        typography = Typography,
+        content = content,
+        colorScheme = colors
     )
 }

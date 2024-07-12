@@ -61,7 +61,6 @@ dependencies {
     implementation(libs.androidx.material3)
 
     // Lifecycle
-    implementation (libs.androidx.lifecycle.runtime.ktx)
     implementation (libs.androidx.lifecycle.viewmodel.compose)
 
     // Retrofit
@@ -69,6 +68,11 @@ dependencies {
     implementation (libs.retrofit)
     implementation (libs.converter.gson)
 
+    // Image loading
+    implementation (libs.coil.compose)
+
+    // Navigation
+    implementation (libs.androidx.navigation.compose)
 
 
     testImplementation(libs.junit)

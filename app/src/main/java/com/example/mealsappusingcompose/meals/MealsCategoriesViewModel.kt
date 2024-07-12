@@ -9,7 +9,7 @@ import com.example.mealsappusingcompose.model.MealsRepository
 import com.example.mealsappusingcompose.model.response.MealResponse
 import kotlinx.coroutines.launch
 
-class MealsCategoriesViewModel (private val repository: MealsRepository = MealsRepository()): ViewModel() {
+class MealsCategoriesViewModel (private val repository: MealsRepository = MealsRepository.getInstance()): ViewModel() {
 
     // Own scope declared
 
